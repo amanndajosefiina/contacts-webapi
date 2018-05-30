@@ -27,6 +27,7 @@ namespace ContactsWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AzureSettings>(Configuration.GetSection("AzureSettings"));
             services.AddScoped<IContactService, ContactService>();
             services.AddScoped<IContactsRepository, ContactsRepository>();
             services.AddDbContext<ContactsDbContext>(options =>
